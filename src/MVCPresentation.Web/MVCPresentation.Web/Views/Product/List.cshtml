@@ -1,0 +1,21 @@
+﻿@model IList<MVCPresentation.Web.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+<div>
+    
+    <ul>
+        @foreach (var product in Model)
+        {
+            <li>@product.Name,  @(product.ProductType == null ? String.Empty : @product.ProductType.Name)</li>
+        }
+    </ul>
+
+</div>
+
+<div>
+    @Html.ActionLink("Add new product","Add")
+</div>

@@ -1,0 +1,10 @@
+﻿@using MVCPresentation.Web.Controllers
+@model dynamic
+
+@if (ViewData.ContainsKey(AppMaintenanceController.ActionExecutedKey) == true)
+{
+    @ViewData[AppMaintenanceController.ActionExecutedKey].ToString()
+}
+
+@Html.ActionLink("Create the database","CreateDatabase")
+@Html.ActionLink("Add sample data","AddSampleData")

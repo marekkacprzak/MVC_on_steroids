@@ -1,0 +1,24 @@
+﻿@using MVCPresentation.Web.Models
+@using NHibernate
+@model Glossary
+
+@{
+    Layout = null;
+}
+
+@functions
+{
+    public _Page_Views_Shared_EditorTemplates_Glossary_cshtml(ISession session)
+    {
+        _session = session;
+    }
+
+    private readonly ISession _session;
+}
+
+@{
+    var glossaryType = ViewData.ModelMetadata.ModelType;
+    var glossaryItems = _session.CreateCriteria(glossaryType).List<Glossary>();
+}
+
+@Html.DropDownList("DropDown",glossaryItems.Select(g => new SelectListItem(){Text = g.Name, Value = g.Id.ToString()}))

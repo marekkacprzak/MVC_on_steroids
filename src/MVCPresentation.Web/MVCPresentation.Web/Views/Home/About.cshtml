@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<ul>
+    @foreach (var a in AppDomain.CurrentDomain.GetAssemblies()
+        .Where(a => a.FullName.StartsWith("System") == false)
+        .Where(a => a.FullName.StartsWith("Microsoft") == false))
+    {
+        <li>@a.FullName</li>    
+    }
+</ul>
